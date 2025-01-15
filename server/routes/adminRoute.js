@@ -5,6 +5,6 @@ const adminController= require("../controllers/adminController");
 route.post("/adminlogin", adminController.adminLogin);
 route.post("/createuser", adminController.createUser);
 route.get("/userdatashow", adminController.userDataShow);
-
+route.post("/assigntask", adminController.assignTask);
 
 module.exports=route;

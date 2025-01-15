@@ -1,5 +1,6 @@
 const AdminModel= require("../models/adminModel");
 const UserModel= require("../models/userModel");
+const TaskModel= require("../models/taskModel");
 
 const adminLogin=async(req, res)=>{
    const {userid, password}= req.body;
@@ -51,8 +52,27 @@ const userDataShow=async(req, res)=>{
 }
 
 
+const assignTask=async(req, res)=>{
+
+   try {
+      const {id, tasktitle, taskdetail}= req.body;
+      const Task= await TaskModel.create({
+         tasktitle:tasktitle,
+         taskdetail:taskdetail, 
+         userid:id
+      })
+
+      res.status(200).json({msg:"task succesfully assign!"})
+      
+   } catch (error) {
+      console.log(error);
+   }
+ 
+}
+
 module.exports ={
     adminLogin,
     createUser,
-    userDataShow
+    userDataShow,
+    assignTask
 }

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import AdminDashBoard from "./pages/AdminDashBoard";
 import CreateUser from "./pages/CreateUser";
 import AssignTask from "./pages/AssignTask";
+import UserTaskAssign from "./pages/UserTaskAssign";
 
 const App=()=>{
   return(
@@ -13,9 +14,10 @@ const App=()=>{
         <Route path="/" element={<Layout/>}>
          <Route index element={<Home/>} />
          <Route path="home" element={<Home/>}/>
-         <Route path="admindashboard" element={<AdminDashBoard/>}>
+         <Route path="/admindashboard" element={<AdminDashBoard/>}>
               <Route path="createuser" element={<CreateUser/>}/>
               <Route path="assigntask" element={<AssignTask/>}/>
+              <Route path="usertaskassign/:id" element={<UserTaskAssign/>}/>
          </Route>
         
          
