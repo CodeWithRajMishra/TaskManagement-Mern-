@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
+import Nav from 'react-bootstrap/Nav';
 
 const AdminDashBoard=()=>{
     const [adminname, setAdminName]=useState("");
@@ -30,11 +32,22 @@ const AdminDashBoard=()=>{
 
           <div id="adminarea">
              <div id="adminMenu">
-                
-             dsfgdfgdfg    
+
+       
+     <Nav defaultActiveKey="/home" className="flex-column">
+      <Nav.Link as={Link} to="createuser">Create New User</Nav.Link>
+      <Nav.Link as={Link} to="assigntask">Assign Task</Nav.Link>
+      <Nav.Link eventKey="link-2">Link</Nav.Link>
+     
+    </Nav>
+
+
+           <br />     
+               
              </div>
              <div id="adminRightData">
-             dfgdfgdfg
+             
+              <Outlet/>
 
              </div>
             

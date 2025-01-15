@@ -1,5 +1,5 @@
 const AdminModel= require("../models/adminModel");
-
+const UserModel= require("../models/userModel");
 
 const adminLogin=async(req, res)=>{
    const {userid, password}= req.body;
@@ -22,6 +22,37 @@ const adminLogin=async(req, res)=>{
 }
 
 
+const createUser=async(req, res)=>{
+   const {username, designation, email, password} = req.body;
+   try {
+         const User= await UserModel.create({
+            username:username,
+            designation:designation,
+            email:email,
+            password:password
+         });
+         if (User)
+         {
+            res.status(200).send({msg:"new user created!"});
+         }
+         else 
+         {
+            res.status(500).send({msg:"error in server!"})
+         }
+      
+   } catch (error) {
+       console.log(error);
+   }
+}
+
+const userDataShow=async(req, res)=>{
+   const User= await UserModel.find();
+   res.status(200).send(User);
+}
+
+
 module.exports ={
-    adminLogin
+    adminLogin,
+    createUser,
+    userDataShow
 }
