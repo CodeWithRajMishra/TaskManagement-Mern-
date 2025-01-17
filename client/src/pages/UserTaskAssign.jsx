@@ -4,10 +4,12 @@ import { useState } from "react";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import { message } from "antd";
+import { useNavigate } from "react-router-dom";
 const UserTaskAssign=()=>{
     const {id} = useParams();
     const [tasktitle, setTaskTitle]= useState("");
     const [taskdetail, setTaskDetail]=useState("");
+    const navigate= useNavigate();
 
    
     const taskAssignToUser=async()=>{
@@ -16,6 +18,7 @@ const UserTaskAssign=()=>{
             const response= await axios.post(api, {id:id, tasktitle:tasktitle, taskdetail:taskdetail});
             console.log(response.data);
             message.success(response.data.msg);
+            navigate("../assigntask");
 
         } catch (error) {
             console.log(error);

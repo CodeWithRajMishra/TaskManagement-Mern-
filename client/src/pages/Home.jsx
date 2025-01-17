@@ -30,9 +30,31 @@ const Home=()=>{
         }
      }
      else 
-     {
-        alert("No admin")
-     }
+       if (usertype=="user")
+       {
+        let api="http://localhost:8000/user/userlogin";
+         try {
+               const response = await axios.post(api, {email:userid, password:password});
+               console.log(response.data); 
+              if (response.status==200)
+              {
+                localStorage.setItem("username", response.data.username);
+                localStorage.setItem("useremail", response.data.email )
+                localStorage.setItem("uid", response.data._id);
+                navigate("/userdashboard");
+              }
+         } catch (error) {
+          message.error(error.response.data.msg);
+         }
+
+
+       }
+       else 
+       {
+        message.error("Please select user Type!");
+       }
+
+
 
 
    }

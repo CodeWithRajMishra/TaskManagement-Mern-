@@ -70,3 +70,31 @@ a.logoutbtn:hover
 {
   width: 85%;
 }
+
+#userdisplaylogin
+{
+  padding: 10px;
+  background-color: rgb(247, 231, 122);
+  color: rgb(51, 40, 36);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+#userDashbordData
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+#userleftmenu
+{
+  width: 20%;
+  padding-top: 20px;
+}
+
+#userrightdata
+{
+  width: 80%;
+}
