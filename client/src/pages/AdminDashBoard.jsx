@@ -37,7 +37,7 @@ const AdminDashBoard=()=>{
      <Nav defaultActiveKey="/home" className="flex-column">
       <Nav.Link as={Link} to="createuser">Create New User</Nav.Link>
       <Nav.Link as={Link} to="assigntask">Assign Task</Nav.Link>
-      <Nav.Link eventKey="link-2">Link</Nav.Link>
+      <Nav.Link as={Link} to="displaytask">Display Task</Nav.Link>
     </Nav>
 
 

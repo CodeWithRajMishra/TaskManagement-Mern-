@@ -6,5 +6,9 @@ route.post("/adminlogin", adminController.adminLogin);
 route.post("/createuser", adminController.createUser);
 route.get("/userdatashow", adminController.userDataShow);
 route.post("/assigntask", adminController.assignTask);
+route.get("/displayusertask", adminController.displayUserTask);
+route.get("/deleteusertask", adminController.deleteUserTask);
+
+
 
 module.exports=route;

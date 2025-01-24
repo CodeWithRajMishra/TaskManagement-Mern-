@@ -70,9 +70,32 @@ const assignTask=async(req, res)=>{
  
 }
 
+
+const displayUserTask=async(req, res)=>{
+
+   try {
+        const Data= await TaskModel.find().populate("userid");
+      
+        res.status(200).send(Data);
+   } catch (error) {
+        console.log(error);
+   }
+}
+
+
+const deleteUserTask=async(req, res)=>{
+   const {id} = req.query;
+  
+   await TaskModel.findByIdAndDelete(id);
+
+   res.status(200).send("task deleted!!!");
+}
+
 module.exports ={
     adminLogin,
     createUser,
     userDataShow,
-    assignTask
+    assignTask,
+    displayUserTask,
+    deleteUserTask
 }
